@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Entry } from '../entries/entry';
 import { ENTRIES_LIST } from '../entries-list';
+import { IdAssignment } from '../id-assignment';
 
 @Component({
   selector: 'app-new-entry-form',
@@ -28,7 +29,7 @@ export class NewEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
-    const newEntry: Entry = new Entry(ENTRIES_LIST.length, entryData.name, entryData.address, entryData.email, entryData.phone);
+    const newEntry: Entry = new Entry(IdAssignment.assignNewId(), entryData.name, entryData.address, entryData.email, entryData.phone);
     ENTRIES_LIST.push(newEntry);
     this.location.back();
   }
