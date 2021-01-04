@@ -3,6 +3,6 @@
         <div routerLink="new-entry-form">Add Contact</div>
     </li>
     <li *ngFor="let entry of this.entries">
-        <div (click)="viewContact()">{{entry.name}}</div>
+        <div [routerLink]="['entry-profile', entry.id]">{{entry.name}}</div>
     </li>
 </ul>

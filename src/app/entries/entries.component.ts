@@ -13,15 +13,14 @@ export class EntriesComponent implements OnInit {
 
   constructor() {
     this.entries = ENTRIES_LIST;
-    // this.entries = [
-    //   new Entry('Amanda Gustafson', '123 State St', 'ag@aol.com', '123-123-1234'),
-    //   new Entry('Heidi Klum', '92 MLK Blvd', 'hk@aol.com', '123-123-1234'),
-    //   new Entry('Miley Cyrus', '456 Nebraska Ave', 'mc@aol.com', '123-123-1234')
-    // ];
   }
 
   ngOnInit(): void {
   }
+
+  // viewContact(entryId: number): void {
+
+  // }
 
 
 
