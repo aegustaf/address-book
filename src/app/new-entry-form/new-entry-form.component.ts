@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Entry } from '../entries/entry';
-import { ENTRIES_LIST } from '../entries-list';
+import { EntriesList } from '../entries-list';
 import { IdAssignment } from '../id-assignment';
 
 @Component({
@@ -29,8 +29,8 @@ export class NewEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
-    const newEntry: Entry = new Entry(IdAssignment.assignNewId(), entryData.name, entryData.address, entryData.email, entryData.phone);
-    ENTRIES_LIST.push(newEntry);
+    const entry: Entry = new Entry(IdAssignment.assignNewId(), entryData.name, entryData.address, entryData.email, entryData.phone);
+    EntriesList.addNewEntry(entry);
     this.location.back();
   }
 

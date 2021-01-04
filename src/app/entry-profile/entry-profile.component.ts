@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Entry } from '../entries/entry';
-import { ENTRIES_LIST } from '../entries-list';
+import { EntriesList } from '../entries-list';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class EntryProfileComponent implements OnInit {
       this.id = parseInt(params.get('id'), 10);
     });
 
-    this.entry = ENTRIES_LIST[this.id];
+    this.entry = EntriesList.getEntryById(this.id);
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from './entry';
-import { ENTRIES_LIST } from '../entries-list';
+import { EntriesList } from '../entries-list';
 
 @Component({
   selector: 'app-entries',
@@ -12,7 +12,7 @@ export class EntriesComponent implements OnInit {
   entries: Entry[];
 
   constructor() {
-    this.entries = ENTRIES_LIST;
+    this.entries = EntriesList.getEntries();
   }
 
   ngOnInit(): void {
