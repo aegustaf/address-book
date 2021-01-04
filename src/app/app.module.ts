@@ -5,19 +5,22 @@ import { AppRoutingModule } from './app-routing.module'; // Added here
 
 import { AppComponent } from './app.component';
 import { EntriesComponent } from './entries/entries.component';
-import { EntryComponent } from './entry/entry.component';
 import { NewEntryFormComponent } from './new-entry-form/new-entry-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EntryProfileComponent } from './entry-profile/entry-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EntriesComponent,
-    EntryComponent,
     NewEntryFormComponent,
+    EntryProfileComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
