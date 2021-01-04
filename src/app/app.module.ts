@@ -8,6 +8,7 @@ import { EntriesComponent } from './entries/entries.component';
 import { NewEntryFormComponent } from './new-entry-form/new-entry-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntryProfileComponent } from './entry-profile/entry-profile.component';
+import { EditEntryFormComponent } from './edit-entry-form/edit-entry-form.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { EntryProfileComponent } from './entry-profile/entry-profile.component';
     EntriesComponent,
     NewEntryFormComponent,
     EntryProfileComponent,
+    EditEntryFormComponent,
   ],
   imports: [
     BrowserModule,
