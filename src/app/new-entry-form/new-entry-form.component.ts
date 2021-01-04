@@ -28,8 +28,8 @@ export class NewEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
-    let entry: Entry = new Entry(entryData.name, entryData.address, entryData.email, entryData.phone);
-    ENTRIES_LIST.push(new Entry(entryData.name, entryData.address, entryData.email, entryData.phone));
+    const newEntry: Entry = new Entry(ENTRIES_LIST.length, entryData.name, entryData.address, entryData.email, entryData.phone);
+    ENTRIES_LIST.push(newEntry);
     this.location.back();
   }
 
