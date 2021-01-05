@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from '../entries/entry';
-import { EntriesList } from '../entries-list';
+import { EntriesList } from '../entries/entries-list';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 

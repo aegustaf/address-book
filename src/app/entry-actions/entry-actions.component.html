@@ -1,1 +1,24 @@
-<p>entry-actions works!</p>
+<section class="section card-section">
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+            {{this.entry.name}}
+            </p>
+        </header>
+        <div class="card-content">
+            <div class="content">
+                <a href="mailto:{{this.entry.email}}" class="button">Email</a>
+            </div>
+            <div class="content">
+                <a href="tel:{{this.entry.phone}}"class="button">Call</a>
+            </div>
+            <div class="content">
+                <a href="http://maps.google.com/?q={{this.entry.address}}" target="_blank" class="button">Get Directions</a>
+            </div>
+            
+        </div>
+        <footer class="card-footer">
+            <a class="card-footer-item" (click)="goBack()">Back</a>
+        </footer>
+    </div>
+</section>

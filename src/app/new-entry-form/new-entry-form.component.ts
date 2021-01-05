@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Entry } from '../entries/entry';
-import { EntriesList } from '../entries-list';
-import { IdAssignment } from '../id-assignment';
+import { EntriesList } from '../entries/entries-list';
+import { IdAssignment } from '../entries/id-assignment';
 
 @Component({
   selector: 'app-new-entry-form',

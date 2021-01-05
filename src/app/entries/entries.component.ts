@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from './entry';
-import { EntriesList } from '../entries-list';
+import { EntriesList } from '../entries/entries-list';
 
 @Component({
   selector: 'app-entries',

@@ -1,4 +1,4 @@
-import { Entry } from './entries/entry';
+import { Entry } from './entry';
 
 export class EntriesList {
   private static entriesList: Entry[] = [
@@ -19,7 +19,7 @@ export class EntriesList {
     return this.entriesList.slice().sort((a, b) => {
       if (a.name < b.name) {
         return -1;
-      } else if (a.name > b.name) {
+      } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
         return 1;
       }
       return 0;

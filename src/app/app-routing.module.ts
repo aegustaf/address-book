@@ -7,7 +7,6 @@ import { EditEntryFormComponent } from './edit-entry-form/edit-entry-form.compon
 import { EntryActionsComponent } from './entry-actions/entry-actions.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'entries', pathMatch: 'full' },
   {
     path: '',
     component: EntriesComponent

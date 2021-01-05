@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Entry } from '../entries/entry';
-import { EntriesList } from '../entries-list';
+import { EntriesList } from '../entries/entries-list';
 
 
 @Component({
