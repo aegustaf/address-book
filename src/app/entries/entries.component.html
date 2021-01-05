@@ -1,15 +1,43 @@
 <section class="section">
+    <div class="control">
+        <div class="select">
+            <select [(ngModel)]="chosenSort" (ngModelChange)="sortEntries()" id="sortable">
+                <option value="sortOldest">Oldest</option>
+                <option value="sortNewest">Newest</option>
+                <option value="sortAlphabetical">Alphabetical</option>
+            </select>
+        </div>
+    </div>    
+</section>
+<hr class="hr" style="margin-bottom: 0;">
+<section class="section">
     <div class="tile is-ancestor">
         <div class="tile is-parent is-4">
             <article class="tile is-child box contact-tile is-light" routerLink="new-entry-form">
                 <p class="title">+ New Contact</p>
             </article>
         </div>
-        <div class="tile is-parent is-4" *ngFor="let entry of this.entries">
+
+        <div [style.display]="this.sortOldest ? 'block' : 'none'" class="tile is-parent is-4" *ngFor="let entry of this.entries">
             <article class="tile is-child box contact-tile" [routerLink]="['entry-profile', entry.id]">
                 <p class="title">{{entry.name}}</p>
                 <p class="subtitle">{{entry.info}}</p>
             </article>
         </div>
+
+        <div [style.display]="this.sortNewest ? 'block' : 'none'" class="tile is-parent is-4" *ngFor="let entry of this.entriesNewest">
+            <article class="tile is-child box contact-tile" [routerLink]="['entry-profile', entry.id]">
+                <p class="title">{{entry.name}}</p>
+                <p class="subtitle">{{entry.info}}</p>
+            </article>
+        </div>
+
+        <div [style.display]="this.sortAlphabetical ? 'block' : 'none'" class="tile is-parent is-4" *ngFor="let entry of this.entriesAlphabetical">
+            <article class="tile is-child box contact-tile" [routerLink]="['entry-profile', entry.id]">
+                <p class="title">{{entry.name}}</p>
+                <p class="subtitle">{{entry.info}}</p>
+            </article>
+        </div>
+
     </div>
 </section>

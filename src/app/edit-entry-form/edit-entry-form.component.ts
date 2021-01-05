@@ -38,11 +38,6 @@ export class EditEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
-    for (const data of entryData) {
-      if (data.trim().length === 0) {
-        return;
-      }
-    }
     this.entry.name = entryData.name;
     this.entry.info = entryData.info;
     this.entry.address = entryData.address;

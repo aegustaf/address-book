@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Entry } from '../entries/entry';
 import { EntriesList } from '../entries-list';
@@ -17,11 +17,11 @@ export class NewEntryFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private location: Location) {
     this.newEntryForm = this.formBuilder.group(
       {
-        name: '',
-        info: '',
-        address: '',
-        email: '',
-        phone: ''
+        name: ['', Validators.required],
+        info: ['', Validators.required],
+        address: ['', Validators.required],
+        email: ['', Validators.required],
+        phone: ['', Validators.required]
       }
     );
   }
@@ -30,11 +30,6 @@ export class NewEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
-    for (const data of entryData) {
-      if (data.trim().length === 0) {
-        return;
-      }
-    }
     const entry: Entry = new Entry(
       IdAssignment.assignNewId(),
       entryData.name,
