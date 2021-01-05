@@ -14,18 +14,16 @@ export class EditEntryFormComponent implements OnInit {
   editEntryForm: FormGroup;
   id: number;
   entry: Entry;
+  displayWarning: boolean;
 
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
-              private router: Router) {   }
+              private router: Router) {
 
-  ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = parseInt(params.get('id'), 10);
     });
-
     this.entry = EntriesList.getEntryById(this.id);
-
     this.editEntryForm = this.formBuilder.group(
       {
         name: this.entry.name,
@@ -35,9 +33,13 @@ export class EditEntryFormComponent implements OnInit {
         phone: this.entry.phone
       }
     );
+    this.displayWarning = false;
   }
 
-  onSubmit(entryData): void {
+  ngOnInit(): void {
+  }
+
+  onSubmit(entryData: any): void {
     if (this.entryDataNotEmpty(entryData)) {
       this.entry.name = entryData.name;
       this.entry.info = entryData.info;
@@ -45,6 +47,8 @@ export class EditEntryFormComponent implements OnInit {
       this.entry.email = entryData.email;
       this.entry.phone = entryData.phone;
       this.goBack();
+    } else {
+      this.displayWarning = true;
     }
   }
 
@@ -58,9 +62,9 @@ export class EditEntryFormComponent implements OnInit {
   }
 
   entryDataNotEmpty(entryData: any): boolean {
-    if (entryData.name.length > 0 && entryData.info.length > 0 &&
-      entryData.address.length > 0 && entryData.email.length > 0
-      && entryData.phone.length > 0) {
+    if (entryData.name.trim().length > 0 && entryData.info.trim().length > 0 &&
+      entryData.address.trim().length > 0 && entryData.email.trim().length > 0
+      && entryData.phone.trim().length > 0) {
       return true;
     }
     return false;

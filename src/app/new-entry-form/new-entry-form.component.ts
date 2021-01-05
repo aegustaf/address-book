@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Entry } from '../entries/entry';
 import { EntriesList } from '../entries-list';
@@ -13,23 +13,25 @@ import { IdAssignment } from '../id-assignment';
 export class NewEntryFormComponent implements OnInit {
 
   newEntryForm: FormGroup;
+  displayWarning: boolean;
 
   constructor(private formBuilder: FormBuilder, private location: Location) {
     this.newEntryForm = this.formBuilder.group(
       {
-        name: new FormControl('', [Validators.required]),
-        info: new FormControl('', [Validators.required]),
-        address: new FormControl('', [Validators.required]),
-        email: new FormControl('', [Validators.required]),
-        phone: new FormControl('', [Validators.required])
+        name: '',
+        info: '',
+        address: '',
+        email: '',
+        phone: ''
       }
     );
+    this.displayWarning = false;
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(entryData): void {
+  onSubmit(entryData: any): void {
     if (this.entryDataNotEmpty(entryData)) {
       const entry: Entry = new Entry(
         IdAssignment.assignNewId(),
@@ -41,13 +43,15 @@ export class NewEntryFormComponent implements OnInit {
       );
       EntriesList.addNewEntry(entry);
       this.location.back();
+    } else {
+      this.displayWarning = true;
     }
   }
 
   entryDataNotEmpty(entryData: any): boolean {
-    if (entryData.name.length > 0 && entryData.info.length > 0 &&
-      entryData.address.length > 0 && entryData.email.length > 0
-      && entryData.phone.length > 0) {
+    if (entryData.name.trim().length > 0 && entryData.info.trim().length > 0 &&
+      entryData.address.trim().length > 0 && entryData.email.trim().length > 0
+      && entryData.phone.trim().length > 0) {
       return true;
     }
     return false;
