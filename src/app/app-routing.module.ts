@@ -4,6 +4,7 @@ import { EntriesComponent } from './entries/entries.component';
 import { NewEntryFormComponent } from './new-entry-form/new-entry-form.component';
 import { EntryProfileComponent } from './entry-profile/entry-profile.component';
 import { EditEntryFormComponent } from './edit-entry-form/edit-entry-form.component';
+import { EntryActionsComponent } from './entry-actions/entry-actions.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'entries', pathMatch: 'full' },
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'entry-profile/:id/edit',
     component: EditEntryFormComponent
+  },
+  {
+    path: 'entry-profile/:id/actions',
+    component: EntryActionsComponent
   }
 ];
 
