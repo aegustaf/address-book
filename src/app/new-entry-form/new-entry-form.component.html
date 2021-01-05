@@ -5,36 +5,42 @@
 
     <div class="field">
         <label class="label" for="name">Name</label>
-        <input class="input" id="name" type="text" formControlName="name" [(ngModel)]="name" required>
+        <input class="input" id="name" type="text">
     </div>
     
     <div class="field">
         <label class="label" for="info">Info</label>
         <div class="control">
-            <input class="input" id="info" type="text" formControlName="info" required>
+            <input class="input" id="info" type="text">
         </div>
     </div>
 
     <div class="field">
         <label class="label" for="address">Address</label>
         <div class="control">
-            <input class="input" id="address" type="text" formControlName="address" required>
+            <input class="input" id="address" type="text">
         </div>
     </div>
 
     <div class="field">
         <label class="label" for="email">Email</label>
         <div class="control">
-            <input class="input" id="email" type="text" formControlName="email" required>
+            <input class="input" id="email" type="text">
         </div>
     </div>
 
     <div class="field">
         <label class="label" for="phone">Phone</label>
         <div class="control">
-            <input class="input" id="phone" type="text" formControlName="phone" required>
+            <input class="input" id="phone" type="text">
         </div>
     </div>
+
+    <section class="field profile" id="warning" [style.display]="this.displayWarning ? 'block' : 'none'">
+        <div class="notification is-danger profile">
+            <p><span class="has-text-weight-bold">Woah there! </span>All fields are required.</p>
+        </div>
+    </section>
     
     <div class="field is-grouped">
 
