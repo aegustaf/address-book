@@ -1,7 +1,27 @@
-<p>{{this.entry.name}}</p>
-<p>{{this.entry.address}}</p>
-<p>{{this.entry.email}}</p>
-<p>{{this.entry.phone}}</p>
-
-<button routerLink="">Back</button>
-<button [routerLink]="['edit']">Edit</button>
+<section class="section card-section">
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+            {{this.entry.name}}
+            </p>
+        </header>
+        <div class="card-content">
+            <div class="content">
+            Info:  <strong>{{this.entry.info}}</strong>
+            </div>
+            <div class="content">
+            Address:  <strong>{{this.entry.address}}</strong>
+            </div>
+            <div class="content">
+            Email:  <strong>{{this.entry.email}}</strong>
+            </div>
+            <div class="content">
+            Phone:  <strong>{{this.entry.phone}}</strong>
+            </div>
+        </div>
+        <footer class="card-footer">
+            <a routerLink="" class="card-footer-item">Back</a>
+            <a [routerLink]="['edit']" class="card-footer-item">Edit</a>
+        </footer>
+    </div>
+</section>
