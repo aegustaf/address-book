@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { Entry } from '../entries/entry';
 import { EntriesList } from '../entries-list';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -39,6 +38,11 @@ export class EditEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
+    for (const data of entryData) {
+      if (data.trim().length === 0) {
+        return;
+      }
+    }
     this.entry.name = entryData.name;
     this.entry.info = entryData.info;
     this.entry.address = entryData.address;

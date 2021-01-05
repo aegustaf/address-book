@@ -30,6 +30,11 @@ export class NewEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
+    for (const data of entryData) {
+      if (data.trim().length === 0) {
+        return;
+      }
+    }
     const entry: Entry = new Entry(
       IdAssignment.assignNewId(),
       entryData.name,
