@@ -18,17 +18,7 @@ export class EditEntryFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
-              private location: Location,
-              private router: Router) {
-    this.editEntryForm = this.formBuilder.group(
-      {
-        name: '',
-        address: '',
-        email: '',
-        phone: ''
-      }
-    );
-   }
+              private router: Router) {   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -40,6 +30,7 @@ export class EditEntryFormComponent implements OnInit {
     this.editEntryForm = this.formBuilder.group(
       {
         name: this.entry.name,
+        info: this.entry.info,
         address: this.entry.address,
         email: this.entry.email,
         phone: this.entry.phone
@@ -49,6 +40,7 @@ export class EditEntryFormComponent implements OnInit {
 
   onSubmit(entryData): void {
     this.entry.name = entryData.name;
+    this.entry.info = entryData.info;
     this.entry.address = entryData.address;
     this.entry.email = entryData.email;
     this.entry.phone = entryData.phone;
