@@ -7,12 +7,13 @@
     flex-wrap: wrap;
 }
 
-.contact-tile {
-    transition: all .25s ease-in-out;
-}
-
-.tile.is-light {
-    background-color: #f5f5f5;
+.tile.new-contact {
+    background-color: #ebebeb;
     border-color: transparent;
     color: rgba(0,0,0,.7);
+}
+
+.tile.contact {
+    background-color: #dae6f9;
+
 }
