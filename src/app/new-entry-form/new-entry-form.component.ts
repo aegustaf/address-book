@@ -18,6 +18,7 @@ export class NewEntryFormComponent implements OnInit {
     this.newEntryForm = this.formBuilder.group(
       {
         name: '',
+        info: '',
         address: '',
         email: '',
         phone: ''
@@ -29,7 +30,14 @@ export class NewEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
-    const entry: Entry = new Entry(IdAssignment.assignNewId(), entryData.name, entryData.address, entryData.email, entryData.phone);
+    const entry: Entry = new Entry(
+      IdAssignment.assignNewId(),
+      entryData.name,
+      entryData.info,
+      entryData.address,
+      entryData.email,
+      entryData.phone
+    );
     EntriesList.addNewEntry(entry);
     this.location.back();
   }
