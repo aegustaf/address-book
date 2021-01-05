@@ -24,6 +24,7 @@ export class EntriesComponent implements OnInit {
     this.sortOldest = true;
     this.sortNewest = false;
     this.sortAlphabetical = false;
+    this.chosenSort = 'sortOldest';
 
     this.entriesNewest = EntriesList.getEntriesOrderedByNewest();
     this.entriesAlphabetical = EntriesList.getEntriesOrderedAlphabetically();
@@ -31,7 +32,7 @@ export class EntriesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   sortEntries(): void {
     switch (this.chosenSort) {
       case 'sortOldest':

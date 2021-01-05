@@ -1,8 +1,8 @@
 <section class="section">
     <div class="control">
         <div class="select">
-            <select [(ngModel)]="chosenSort" (ngModelChange)="sortEntries()" id="sortable">
-                <option value="sortOldest">Oldest</option>
+            <select [(ngModel)]="chosenSort" (ngModelChange)="sortEntries()" id="sortable" name="chosenSort">
+                <option value="sortOldest" ng-selected="selected">Oldest</option>
                 <option value="sortNewest">Newest</option>
                 <option value="sortAlphabetical">Alphabetical</option>
             </select>

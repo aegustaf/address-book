@@ -38,12 +38,14 @@ export class EditEntryFormComponent implements OnInit {
   }
 
   onSubmit(entryData): void {
-    this.entry.name = entryData.name;
-    this.entry.info = entryData.info;
-    this.entry.address = entryData.address;
-    this.entry.email = entryData.email;
-    this.entry.phone = entryData.phone;
-    this.goBack();
+    if (this.entryDataNotEmpty(entryData)) {
+      this.entry.name = entryData.name;
+      this.entry.info = entryData.info;
+      this.entry.address = entryData.address;
+      this.entry.email = entryData.email;
+      this.entry.phone = entryData.phone;
+      this.goBack();
+    }
   }
 
   goBack(): void {
@@ -53,6 +55,15 @@ export class EditEntryFormComponent implements OnInit {
   deleteEntry(id: number): void {
     EntriesList.deleteEntryById(id);
     this.router.navigate(['']);
+  }
+
+  entryDataNotEmpty(entryData: any): boolean {
+    if (entryData.name.length > 0 && entryData.info.length > 0 &&
+      entryData.address.length > 0 && entryData.email.length > 0
+      && entryData.phone.length > 0) {
+      return true;
+    }
+    return false;
   }
 
 }
