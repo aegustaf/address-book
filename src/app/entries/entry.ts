@@ -2,13 +2,15 @@ export class Entry {
 
   private _id: number;
   private _name: string;
+  private _info: string;
   private _address: string;
   private _email: string;
   private _phone: string;
 
-  constructor(id: number, name: string, address: string, email: string, phone: string) {
+  constructor(id: number, name: string, info: string, address: string, email: string, phone: string) {
     this._id = id;
     this._name = name;
+    this._info = info;
     this._address = address;
     this._email = email;
     this._phone = phone;
@@ -24,6 +26,14 @@ export class Entry {
 
   set name(newName: string) {
     this._name = newName;
+  }
+
+  get info(): string {
+    return this._info;
+  }
+
+  set info(newInfo: string) {
+    this._info = newInfo;
   }
 
   set address(newAddress: string) {
