@@ -1,4 +1,5 @@
-<form [formGroup]="newEntryForm">
+<form [formGroup]="editEntryForm"
+(ngSubmit)="onSubmit(editEntryForm.value)">
     <label for="name">Name</label>
     <input id="name" type="text" formControlName="name" value="{{this.entry.name}}" autocomplete="off" required>
     <br>
@@ -17,6 +18,6 @@
 
     <button (click)="goBack()">Back</button>
     <button type="submit">Save</button>
-    <button (click)="deleteEntry(this.entry.id)" routerLink="">Delete</button>
+    <button (click)="deleteEntry(this.entry.id)">Delete</button>
 
 </form>

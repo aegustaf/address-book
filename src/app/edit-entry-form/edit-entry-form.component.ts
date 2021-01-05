@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Entry } from '../entries/entry';
 import { EntriesList } from '../entries-list';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-entry-form',
@@ -11,10 +12,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditEntryFormComponent implements OnInit {
 
+  editEntryForm: FormGroup;
   id: number;
   entry: Entry;
 
-  constructor(private route: ActivatedRoute, private location: Location) { }
+  constructor(private formBuilder: FormBuilder,
+              private route: ActivatedRoute,
+              private location: Location,
+              private router: Router) {
+    this.editEntryForm = this.formBuilder.group(
+      {
+        name: '',
+        address: '',
+        email: '',
+        phone: ''
+      }
+    );
+   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -22,19 +36,32 @@ export class EditEntryFormComponent implements OnInit {
     });
 
     this.entry = EntriesList.getEntryById(this.id);
+
+    this.editEntryForm = this.formBuilder.group(
+      {
+        name: this.entry.name,
+        address: this.entry.address,
+        email: this.entry.email,
+        phone: this.entry.phone
+      }
+    );
   }
 
-  onSubmit(): void {
-    console.log('Submit');
+  onSubmit(entryData): void {
+    this.entry.name = entryData.name;
+    this.entry.address = entryData.address;
+    this.entry.email = entryData.email;
+    this.entry.phone = entryData.phone;
     this.goBack();
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['entry-profile', this.entry.id]);
   }
 
   deleteEntry(id: number): void {
-    const entryToDelete = EntriesList.deleteEntryById(id);
+    EntriesList.deleteEntryById(id);
+    this.router.navigate(['']);
   }
 
 }
