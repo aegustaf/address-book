@@ -1,0 +1,12 @@
+.contact-tile:hover {
+    cursor: pointer;
+    box-shadow: 0 .5em 1em -0.125em rgba(10,10,10,.3), 0 0 0 1px rgba(10,10,10,.15);
+}
+
+.is-ancestor {
+    flex-wrap: wrap;
+}
+
+.contact-tile {
+    transition: all .25s ease-in-out;
+}

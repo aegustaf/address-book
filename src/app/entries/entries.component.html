@@ -1,8 +1,15 @@
-<ul>
-    <li>
-        <div routerLink="new-entry-form">Add Contact</div>
-    </li>
-    <li *ngFor="let entry of this.entries">
-        <div [routerLink]="['entry-profile', entry.id]">{{entry.name}}</div>
-    </li>
-</ul>
+<section class="section">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent is-4">
+            <article class="tile is-child box contact-tile" routerLink="new-entry-form">
+                <p class="title">+ New Contact</p>
+            </article>
+        </div>
+        <div class="tile is-parent is-4" *ngFor="let entry of this.entries">
+            <article class="tile is-child box contact-tile" [routerLink]="['entry-profile', entry.id]">
+                <p class="title">{{entry.name}}</p>
+                <p class="subtitle">{{entry.info}}</p>
+            </article>
+        </div>
+    </div>
+</section>
